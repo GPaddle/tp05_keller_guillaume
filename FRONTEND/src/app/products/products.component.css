@@ -1,0 +1,67 @@
+.cards {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card .title {
+    margin-top: 1rem;
+}
+
+.card>*:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
+.card {
+    width: clamp(35ch, 40%, 400px);
+    border-radius: 0.5rem;
+    border: 1px solid;
+    padding: 3rem 2rem 2rem 2rem;
+    position: relative;
+    overflow: hidden;
+    /* min-width: 20rem; */
+}
+
+.card .icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background: #fff4;
+    font-size: 2.3rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid;
+    z-index: -1;
+}
+
+.filter .tag {
+    width: fit-content;
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    max-width: 35rem;
+}
+
+.input-group label, label input {
+    width: 100%;
+}
+
+label[for=minPrice], label[for=maxPrice] {
+    max-width: 20ch;
+}
+
+#filterSection {
+    max-width: 25rem;
+}
+
+input {
+    color: #000;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+}

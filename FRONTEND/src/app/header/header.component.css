@@ -1,0 +1,13 @@
+ul.flex{
+	gap: 1rem;
+}
+
+ul li {
+	list-style-type: none;
+	text-align: center;
+	flex: 1;
+}
+
+nav{
+	margin-top: 1rem;
+}

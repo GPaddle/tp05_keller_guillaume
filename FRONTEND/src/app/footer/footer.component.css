@@ -1,0 +1,11 @@
+ul li {
+	margin-left: 3rem;
+}
+
+.flex {
+	--margin: 2rem;
+	gap: 4rem;
+	justify-content: space-evenly;
+	margin-top: var(--margin);
+	margin-bottom: var(--margin);
+}

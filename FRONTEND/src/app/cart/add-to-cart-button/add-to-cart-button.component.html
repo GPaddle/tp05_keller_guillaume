@@ -1,0 +1,4 @@
+<form [formGroup]="addToCartForm">
+	<input type="number" name="" id="quantity" min="1" value="1" formControlName="quantity">
+	<button id="addToCart" (click)="addToCart()">{{product.icon}} Ajouter au panier</button>
+</form>

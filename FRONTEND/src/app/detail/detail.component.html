@@ -1,0 +1,19 @@
+<div class="flex" *ngFor="let product of product$ | async">
+	<div id="icon" class="mx-auto" title="{{product.icon}}"></div>
+	<div  id="productDescription" class="mx-auto">
+		<h1 id="title">{{product.title}}</h1>
+		<div class="tags">
+			<div *ngFor="let category of product.categories" class="tag">
+				{{ category }}
+			</div>
+		</div>
+		<p id="description">{{product.description}}</p>
+		<ul id="metaData">
+			<li *ngFor="let metaData of product.metaData">
+				{{ metaData.name }} : {{ metaData.value }}
+			</li>
+		</ul>
+		<h2 id="price">{{product.price | priceDisplay}} €</h2>
+		<app-add-to-cart-button [product]="product" class="mt-1"></app-add-to-cart-button>
+	</div>
+</div>

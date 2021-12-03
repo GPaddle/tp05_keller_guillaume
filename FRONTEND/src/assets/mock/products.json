@@ -1,0 +1,399 @@
+[
+    {
+        "id": 0,
+        "title": "Orange",
+        "description": "🍊 Comme une célèbre marque de télécom",
+        "price": 0.58,
+        "categories": [
+            "Fruit",
+            "Agrume"
+        ],
+        "icon": "🍊",
+        "metaData": [
+            {
+                "name": "Acidité",
+                "value": "+"
+            },
+            {
+                "name": "Sucre",
+                "value": "++"
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "title": "Pomme",
+        "description": "🍎 Sympa, disponible toute l'année",
+        "price": 0.18,
+        "categories": [
+            "Fruit",
+            "Local"
+        ],
+        "icon": "🍎",
+        "metaData": [
+            {
+                "name": "Tarte",
+                "value": "++"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Banane",
+        "description": "🍌 Pas mal pour avoir la forme avant une course.",
+        "price": 0.43,
+        "categories": [
+            "Fruit",
+            "Tropical"
+        ],
+        "icon": "🍌",
+        "metaData": [
+            {
+                "name": "Energie",
+                "value": "++"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Pastèque",
+        "description": "🍉 Top pour l'été, rafraichissant.",
+        "price": 1.00,
+        "categories": [
+            "Fruit",
+            "Tropical"
+        ],
+        "icon": "🍉",
+        "metaData": [
+            {
+                "name": "Eau",
+                "value": "++"
+            },
+            {
+                "name": "Sucre",
+                "value": "+"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Ananas",
+        "description": "🍍 Très bon en tranche.",
+        "price": 2.99,
+        "categories": [
+            "Fruit",
+            "Tropical"
+        ],
+        "icon": "🍍",
+        "metaData": [
+            {
+                "name": "Sucre",
+                "value": "++"
+            },
+            {
+                "name": "Acidité",
+                "value": "+"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Fraise",
+        "description": "🍓 Sucré, summer vibes, c'est top !",
+        "price": 0.05,
+        "categories": [
+            "Fruit",
+            "Estival"
+        ],
+        "icon": "🍓",
+        "metaData": [
+            {
+                "name": "Sucre",
+                "value": "++"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Citron",
+        "description": "🍋 Ca pique un peu les papilles.",
+        "price": 0.30,
+        "categories": [
+            "Fruit",
+            "Agrume"
+        ],
+        "icon": "🍋",
+        "metaData": [
+            {
+                "name": "Acidité",
+                "value": "++"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Pêche",
+        "description": "🍑 Bon été",
+        "price": 1.40,
+        "categories": [
+            "Fruit",
+            "Local"
+        ],
+        "icon": "🍑",
+        "metaData": []
+    },
+    {
+        "id": 8,
+        "title": "Raisin",
+        "description": "🍇 Aussi pour bon le vin que pour la table",
+        "price": 2.98,
+        "categories": [
+            "Fruit",
+            "Local"
+        ],
+        "icon": "🍇",
+        "metaData": []
+    },
+    {
+        "id": 9,
+        "title": "Cerise",
+        "description": "🍒 De belles boucles d'oreilles qui se mange",
+        "price": 0.12,
+        "categories": [
+            "Fruit",
+            "Local"
+        ],
+        "icon": "🍒",
+        "metaData": []
+    },
+    {
+        "id": 10,
+        "title": "Kiwi",
+        "description": "🥝 Avec le kiwi, une bonne dose de vitamine C tous les matins",
+        "price": 1.30,
+        "categories": [
+            "Fruit",
+            "Exotique"
+        ],
+        "icon": "🥝",
+        "metaData": [
+            {
+                "name": "Acidité",
+                "value": "+"
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "title": "Cornichon",
+        "description": "🥒 Le petit frère du concombre",
+        "price": 0.99,
+        "categories": [
+            "Légume",
+            "Local"
+        ],
+        "icon": "🥒",
+        "metaData": [
+            {
+                "name": "Acidité",
+                "value": "+"
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "title": "Poire",
+        "description": "🍐 Juteuses et très colorées",
+        "price": 1.20,
+        "categories": [
+            "Fruits",
+            "Locaux"
+        ],
+        "icon": "🍐",
+        "metaData": []
+    },
+    {
+        "id": 13,
+        "title": "Mangue ",
+        "description": "",
+        "price": 2.00,
+        "categories": [
+            "Fruit",
+            "Exotique"
+        ],
+        "icon": "🥭",
+        "metaData": []
+    },
+    {
+        "id": 14,
+        "title": "Noix de coco",
+        "description": "",
+        "price": 3.50,
+        "categories": [
+            "Fruit",
+            "Exotique"
+        ],
+        "icon": "🥥",
+        "metaData": [
+            {
+                "name": "Précaution d'emplois",
+                "value": "Ne pas manger l'écorce"
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "title": "Aubergine",
+        "description": "",
+        "price": 2.30,
+        "categories": [
+            "Légume",
+            "Local"
+        ],
+        "icon": "🍆",
+        "metaData": []
+    },
+    {
+        "id": 16,
+        "title": "Avocat",
+        "description": "",
+        "price": 1.80,
+        "categories": [
+            "Légume",
+            "Exotique"
+        ],
+        "icon": "🥑",
+        "metaData": [
+            {
+                "name": "Fun fact",
+                "value": "Ne vous aidera pas à échapper au tribunal"
+            }
+        ]
+    },
+    {
+        "id": 17,
+        "title": "Brocolis",
+        "description": "",
+        "price": 1.70,
+        "categories": [
+            "Légume",
+            "Local"
+        ],
+        "icon": "🥦",
+        "metaData": [
+            {
+                "name": "Fun fact",
+                "value": "Les enfants n'aiment pas ça"
+            }
+        ]
+    },
+    {
+        "id": 18,
+        "title": "Navet",
+        "description": "",
+        "price": 3.40,
+        "categories": [
+            "Légume",
+            "Local"
+        ],
+        "icon": "🥬",
+        "metaData": [
+            {
+                "name": "Fun fact",
+                "value": "N'est pas un film"
+            }
+        ]
+    },
+    {
+        "id": 19,
+        "title": "Maïs",
+        "description": "",
+        "price": 1.90,
+        "categories": [
+            "Légume",
+            "Local"
+        ],
+        "icon": "🌽",
+        "metaData": [
+            {
+                "name": "Fun fact",
+                "value": "Peut se transformer en popcorn magique"
+            }
+        ]
+    },
+    {
+        "id": 20,
+        "title": "Piment",
+        "description": "🌶 Sensations fortes culinaires garanties",
+        "price": 0.98,
+        "categories": [
+            "Légume",
+            "Exotique"
+        ],
+        "icon": "🌶",
+        "metaData": []
+    },
+    {
+        "id": 21,
+        "title": "Pomme de terre",
+        "description": "🥔 Un féculent d'excellente qualité, peu cher, l'idéal pour vos Baeckeoffe",
+        "price": 0.12,
+        "category": [
+            "Légume",
+            "Local"
+        ],
+        "icon": "🥔",
+        "metaData": []
+    },
+    {
+        "id": 22,
+        "title": "Ail",
+        "description": "",
+        "price": 0.70,
+        "category": [
+            "Légume",
+            "Local"
+        ],
+        "icon": "🧄",
+        "metaData": [
+            {
+                "name": "Fun fact",
+                "value": "Vous donnera une haleine à repousser un monstre"
+            }
+        ]
+    },
+    {
+        "id": 23,
+        "title": "Carotte",
+        "description": "",
+        "price": 0.90,
+        "category": [
+            "Légume",
+            "Local"
+        ],
+        "icon": "🥕",
+        "metaData": [
+            {
+                "name": "Fun fact",
+                "value": "Selon la légende, elle rend aimable"
+            }
+        ]
+    },
+    {
+        "id": 24,
+        "title": "Oignons",
+        "description": "",
+        "price": 0.80,
+        "category": [
+            "Légume",
+            "Local"
+        ],
+        "icon": "🧅",
+        "metaData": [
+            {
+                "name": "Fun fact",
+                "value": "Vous fera pleurer si vous osez lui faire du mal"
+            }
+        ]
+    }
+]

@@ -1,0 +1,8 @@
+<div *ngIf="nb$ | async as nb">
+	<div>
+		<a id="floatingCartButton" routerLink="/cart" routerLinkActive="active">
+			🛒
+			<p id="indicator">{{nb$ | async}}</p>
+		</a>
+	</div>
+</div>

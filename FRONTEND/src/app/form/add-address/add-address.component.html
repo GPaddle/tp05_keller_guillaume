@@ -1,0 +1,39 @@
+<form action="" method="post" id="addressForm" class="input-group" [formGroup]="addAddressForm" (ngSubmit)="submit()">
+
+        <div>
+            <label for="street">Addresse</label>
+            <input type="text" name="street" id="streetInput" placeholder="1 rue de la République"
+                title="L'adresse doit être renseignée" formControlName="street">
+            <span title="L'adresse doit être renseignée"></span>
+        </div>
+
+        <div>
+            <label for="postalCode">Code postal</label>
+            <input type="text" name="postalCode" id="postalCodeInput" placeholder="01000"
+                title="Le code postal doit être au format 12345" formControlName="postalCode">
+            <span title="Le code postal doit être au format 12345"></span>
+        </div>
+
+        <div>
+            <label for="city">🏠 Ville</label>
+            <input type="text" name="city" id="cityInput" placeholder="Bourg-en-Bresse"
+                title="La ville doit être renseignée" formControlName="city">
+            <span title="La ville doit être renseignée"></span>
+        </div>
+        <div>
+            <label for="country">🌍 Pays</label>
+            <select name="country" id="country" formControlName="country">
+                <option selected disabled hidden value="">Choisir un pays</option>
+                <option value="France">France</option>
+                <option value="Allemagne">Allemagne</option>
+                <option value="Angleterre">Angleterre</option>
+                <option value="Etats-Unis">Etats-Unis</option>
+                <option value="Chine">Chine</option>
+                <option value="Russie">Russie</option>
+            </select>
+            <span title="Le pays doit être renseigné"></span>
+        </div>
+
+    <button type="submit"  class="mx-auto my-1">Envoyer !</button>
+
+</form>

@@ -1,0 +1,139 @@
+<div *ngIf="people" class="flex flex-column gap-1 card">
+
+    <section>
+        <h2 class="text-center">{{people.civility}} {{people.lastName}} {{people.firstName}}</h2>
+    </section>
+    <section>
+        <div *ngIf="!people.addresses?.length" class="my-1">
+            🤔 Vous n'avez vraiment pas d'addresse ?
+        </div>
+        <div *ngFor="let address of people.addresses">
+            <app-address [address]=address [people]=people></app-address>
+        </div>
+        <details [attr.open]="!people.addresses?.length ? 'Ok': null">
+            <summary class="bg-success p-1 w-max-content br-1">
+                Ajout d'une nouvelle addresse
+            </summary>
+            <app-add-address [people]=people></app-add-address>
+        </details>
+    </section>
+    <section>
+        <address>
+            ✉ <a href="mailto:{{people.contact.email}}">{{people.contact.email}}</a><br>
+            📞 <a href="tel:{{people.contact.phoneNumber}}">{{people.contact.phoneNumber}}</a>
+          </address>
+    </section>
+
+    <section>🔑 {{people.account.login}}</section>
+
+</div>
+
+<form *ngIf="!people" action="" method="post" id="contactForm" [formGroup]="signUpForm" (ngSubmit)="submit()">
+    <div id="person" class="input-group">
+        <div>
+            <label for="lastName">Nom</label>
+            <input type="text" name="lastName" id="lastNameInput" placeholder="Dupont"
+                title="Le nom de famille doit être renseigné" formControlName="lastName">
+            <span title=" Le nom de famille doit être renseigné"></span>
+        </div>
+        <div>
+            <label for="firstName">Prénom</label>
+            <input type="text" name="firstName" id="firstNameInput" placeholder="Jean"
+                title="Le prénom doit être renseigné" formControlName="firstName">
+            <span title="Le prénom doit être renseigné"></span>
+        </div>
+    </div>
+
+    <div id="location" class="input-group" formGroupName="address">
+        <div>
+            <label for="street">Addresse</label>
+            <input type="text" name="street" id="streetInput" placeholder="1 rue de la République"
+                title="L'adresse doit être renseignée" formControlName="street">
+            <span title="L'adresse doit être renseignée"></span>
+        </div>
+
+        <div>
+            <label for="postalCode">Code postal</label>
+            <input type="text" name="postalCode" id="postalCodeInput" placeholder="01000"
+                title="Le code postal doit être au format 12345" formControlName="postalCode">
+            <span title="Le code postal doit être au format 12345"></span>
+        </div>
+
+        <div>
+            <label for="city">🏠 Ville</label>
+            <input type="text" name="city" id="cityInput" placeholder="Bourg-en-Bresse"
+                title="La ville doit être renseignée" formControlName="city">
+            <span title="La ville doit être renseignée"></span>
+        </div>
+        <div>
+            <label for="country">🌍 Pays</label>
+            <select name="country" id="country" formControlName="country">
+                <option selected disabled hidden value="">Choisir un pays</option>
+                <option value="France">France</option>
+                <option value="Allemagne">Allemagne</option>
+                <option value="Angleterre">Angleterre</option>
+                <option value="Etats-Unis">Etats-Unis</option>
+                <option value="Chine">Chine</option>
+                <option value="Russie">Russie</option>
+            </select>
+            <span title="Le pays doit être renseigné"></span>
+        </div>
+    </div>
+
+    <div id="contact" class="input-group" formGroupName="contact">
+        <div>
+            <label for="phoneNumber">📞 Numéro de téléphone</label>
+            <input type="tel" name="phoneNumber" id="phoneNumberInput" placeholder="0607080910"
+                title="Le numéro de téléphone doit être au format 1234567890 ou +33234567890"
+                formControlName="phoneNumber">
+            <span title="Le numéro de téléphone doit être au format 1234567890 ou +33234567890"></span>
+        </div>
+
+        <div>
+            <label for="email">✉ Email</label>
+            <input type="email" name="email" id="emailInput" placeholder="Jean@Dupont.fr"
+                title="L'email doit correspondre au format xxxx@yyyyyy.zzzzzz" formControlName="email">
+            <span title="L'email doit correspondre au format xxxx@yyyyyy.zzzzzz"></span>
+        </div>
+
+    </div>
+
+    <div id="contact" class="input-group">
+        <div>
+            <label for="civility">Civilité</label>
+            <select name="civility" id="civility" formControlName="civility">
+                <option selected disabled hidden value="">Faites un choix</option>
+                <option value="Monsieur">👨🏼 Monsieur</option>
+                <option value="Madame">👩🏼 Madame</option>
+                <option value="Nothing">🤖 Ne se prononce pas</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="account" class="input-group" formGroupName="account">
+        <div>
+            <label for="login">🚪 Nom d'utilisateur</label>
+            <input type="text" name="login" id="loginInput" placeholder="Nom d'utilisateur"
+                title="Le logindoit être composé d'au moins 5 caractères" formControlName="login">
+            <span title="Le login doit être composé d'au moins 5 caractères"></span>
+        </div>
+
+        <div>
+            <label for="password">🔑 Mot de passe</label>
+            <input type="password" name="password" id="passwordInput" [(ngModel)]='password' placeholder="Mot de passe"
+                minlength="5" title="Le mot de passe doit faire au moins 5 caractères" formControlName="password">
+            <span title="Le mot de passe doit faire au moins 5 caractères"></span>
+        </div>
+
+        <div>
+            <label for="passwordConfirmation">🔑 Confirmer votre mot de passe</label>
+            <input type="password" name="passwordConfirmation" appCheckPassword [initPass]='password'
+                id="passwordConfirmationInput" placeholder="Confirmation du mot de passe"
+                title="Le mot de passe doit correspondre" formControlName="passwordConfirmation">
+            <span title="Le mot de passe doit correspondre"></span>
+        </div>
+    </div>
+
+    <button type="submit" class="mx-auto my-1">Envoyer !</button>
+
+</form>

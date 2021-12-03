@@ -1,0 +1,16 @@
+section {
+	position: relative;
+	display: flex;
+	margin: 1rem 0;
+	padding: 1rem 0;
+	border-bottom: 1px dashed;
+}
+
+button {
+	width: min-content;
+	margin: 0 0 0 1rem;
+}
+
+address {
+	flex: 1;
+}

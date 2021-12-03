@@ -1,0 +1,4 @@
+<form [formGroup]="removeFromCartForm">
+	<input type="number" name="" id="quantity" min="1" value="1" max="{{cartItem.quantity}}" formControlName="quantity">
+	<button id="removeFromCart" (click)="removeFromCart()">-</button>
+</form>

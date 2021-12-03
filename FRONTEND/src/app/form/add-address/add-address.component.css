@@ -1,0 +1,14 @@
+form {
+	max-width: 30rem;
+	padding: 1rem;
+	background: #fff2;
+	margin: 1rem;
+	border-radius: 0.6rem;
+	display: flex;
+	gap: 1rem;
+	flex-direction: column;
+}
+
+button {
+	display: block;
+}

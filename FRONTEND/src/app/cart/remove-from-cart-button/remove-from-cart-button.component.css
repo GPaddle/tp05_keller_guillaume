@@ -1,0 +1,26 @@
+form {
+	display: flex;
+}
+
+#quantity {
+	border-radius: 1rem 0 0 1rem;
+	height: 100%;
+	color: white;
+	border: 1px solid;
+	border-right: none;
+	background: #fff3;
+}
+
+#removeFromCart {
+	margin: 0;
+	padding: 0.4em 1em;
+	background-color: #aa2c2c;
+	border: 1px solid;
+	border-radius: 0 1rem 1rem 0;
+	padding: 0 1rem;
+	color: white;
+}
+
+#removeFromCart:hover{
+	background-color: #b30909;
+}

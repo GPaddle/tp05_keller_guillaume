@@ -1,0 +1,25 @@
+#productDescription>*:not(:last-child) {
+	margin-bottom: 1rem;
+}
+
+#description {
+	margin-top: 1rem;
+	border-top: 1px solid;
+	min-height: 7rem;
+	padding-top: 1rem;
+}
+
+#icon::before {
+	content: attr(title);
+}
+
+#icon {
+	font-size: clamp(100%, 13rem, 40vw);
+	padding: min(10vw, 3rem);
+	background: #fff2;
+	border-radius: 1rem;
+}
+
+.flex {
+	gap: 1rem;
+}

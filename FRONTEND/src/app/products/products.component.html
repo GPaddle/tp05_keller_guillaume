@@ -1,0 +1,64 @@
+<div id="filterSection" class="mx-auto mb-2">
+    <div id="filters" class="mb-2 flex flex-column gap-1">
+        <h3>Titre</h3>
+        <div class="input-group">
+            <label for="searchInput">
+                <input type="text" [(ngModel)]='searchInput' name="searchInput" id="searchInput"
+                    placeholder="🔎 Pomme, litchi, ...">
+            </label>
+        </div>
+        <h3>Prix</h3>
+        <p>(min-max)</p>
+        <div class="input-group">
+            <label for="minPrice" class="mx-auto">
+                <input type="number" [(ngModel)]='minPrice' name="minPrice" id="minPrice" placeholder="Minimum 0.00"
+                    min=0 max={{maxPrice}} step="0.1">
+            </label>
+            <label for="maxPrice" class="mx-auto">
+                <input type="number" [(ngModel)]='maxPrice' name="maxPrice" id="maxPrice" placeholder="Maximum 10000.0"
+                    min={{minPrice}} step="0.1">
+            </label>
+        </div>
+    </div>
+
+    <div class="currentFilter">
+        Filtre(s) actif(s):
+        <ul>
+            <li *ngIf="searchInput">Titre contient : {{searchInput}}</li>
+            <li *ngIf="minPrice">Prix minimum : {{minPrice | priceDisplay}} €</li>
+            <li *ngIf="maxPrice">Prix maximum : {{maxPrice | priceDisplay}} €</li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="cards">
+    <div *ngFor="let p of catalog$ | async | filterProduct:[(searchInput),(minPrice),(maxPrice)]" class="card">
+        <div class="icon">{{p.icon}}</div>
+        <h2 class="title">
+            <a [routerLink]="['/product', p.id]">
+                {{ p.title }}
+            </a>
+        </h2>
+        <div class="tags">
+            <div *ngFor="let category of p.categories" class="tag">
+                {{ category }}
+            </div>
+        </div>
+        <p>
+            {{ p.description }}
+        </p>
+        <div class="price mb-1">
+            {{ p.price | priceDisplay }} €
+        </div>
+        <!-- <div>
+            <ul>
+                <li *ngFor="let metaData of p.metaData">
+                    {{ metaData.name }} : {{ metaData.value }}
+                </li>
+            </ul>
+        </div> -->
+
+        <app-add-to-cart-button [product]="p" class="mt-1"></app-add-to-cart-button>
+    </div>
+</div>

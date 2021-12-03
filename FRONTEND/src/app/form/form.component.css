@@ -1,0 +1,42 @@
+#main {
+    margin: auto;
+    width: min(50em, 90vw);
+}
+
+form {
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+}
+
+form>div {
+    padding: 1em;
+}
+
+.input-group {
+    display: flex;
+    gap: 2em;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.input-group:not(:last-child) {
+    border-bottom: 1px dashed #777;
+}
+
+form {
+    border: 1px dashed #777;
+    border-radius: 0.6em;
+}
+
+button[type="submit"] {
+    width: min(30ch, 100%);
+    margin: 0 auto;
+    margin-bottom: 0px;
+    margin-bottom: 1em;
+    padding: 0.5em 1em;
+}
+
+#contactForm {
+    margin-top: 1em;
+}
