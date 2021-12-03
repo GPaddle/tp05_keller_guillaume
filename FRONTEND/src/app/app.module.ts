@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormComponent } from './form/form.component';
@@ -23,6 +23,8 @@ import { FilterProductPipe } from './pipes/filter-product.pipe';
 import { PriceDisplayPipe } from './pipes/price-display.pipe';
 import { AddAddressComponent } from './form/add-address/add-address.component';
 import { AddressComponent } from './form/address/address.component';
+import { ApiHttpInterceptor } from './api-http-interceptor';
+import { GetDataPipe } from './get-data.pipe';
 
 const routes: Routes = [
   {
@@ -66,6 +68,7 @@ const routes: Routes = [
     RemoveFromCartButtonComponent,
     AddAddressComponent,
     AddressComponent,
+    GetDataPipe,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +80,11 @@ const routes: Routes = [
     NgxsModule.forRoot([CartState], { developmentMode: !environment.production }),
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: ApiHttpInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

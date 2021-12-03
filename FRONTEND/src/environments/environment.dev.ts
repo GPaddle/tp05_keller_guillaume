@@ -1,4 +1,5 @@
 export const environment = {
   production: false,
-  productURL: "/src/assets/mock/products.json"
+  productURL: "localhost:8080/api/product",
+  API_URL: "localhost:8080/api",
 };

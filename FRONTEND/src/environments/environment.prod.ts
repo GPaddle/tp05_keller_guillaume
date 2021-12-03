@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  productURL: "/assets/mock/products.json"
+  productURL: "http://api-tp05-keller-guillaume.herokuapp.com/api/product",
+  API_URL: "https://api-tp05-keller-guillaume.herokuapp.com/api"
 };

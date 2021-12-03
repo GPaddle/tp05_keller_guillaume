@@ -15,19 +15,18 @@ export class CatalogService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getCatalogue(): Observable<Product[]> {
-    this.observableProductArray = this.httpClient.get<Array<Product>>(environment.productURL);
-    return this.observableProductArray
+  private extractData(res: Response): any {
+    const body = res;
+    return body || {};
   }
 
-  getProduct(id: number) {
-    if (!this.observableProductArray) {
-      this.observableProductArray = this.httpClient.get<Array<Product>>(environment.productURL);
-    }
-    const tmp = this.observableProductArray.pipe(
-      map(products =>products.filter(product => product.id == id)),
-    );
-
-    return tmp;
+  getCatalogue(): Observable<any> {
+    this.observableProductArray = this.httpClient.get<Array<Product>>(environment.productURL);
+    return this.observableProductArray;
+  }
+  
+  getProduct(id: number): Observable<any> {
+    this.observableProductArray = this.httpClient.get<Array<Product>>(environment.productURL + "/" + id);
+    return this.observableProductArray;
   }
 }

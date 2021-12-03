@@ -1,6 +1,6 @@
-<div class="flex" *ngFor="let product of product$ | async">
+<div class="flex" *ngFor="let product of product$ | async | getData">
 	<div id="icon" class="mx-auto" title="{{product.icon}}"></div>
-	<div  id="productDescription" class="mx-auto">
+	<div id="productDescription" class="mx-auto">
 		<h1 id="title">{{product.title}}</h1>
 		<div class="tags">
 			<div *ngFor="let category of product.categories" class="tag">

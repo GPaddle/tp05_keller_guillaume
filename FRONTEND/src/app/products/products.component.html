@@ -33,32 +33,33 @@
 
 
 <div class="cards">
-    <div *ngFor="let p of catalog$ | async | filterProduct:[(searchInput),(minPrice),(maxPrice)]" class="card">
-        <div class="icon">{{p.icon}}</div>
+    <div *ngFor="let product of catalog$ | async | getData | filterProduct:[(searchInput),(minPrice),(maxPrice)]"
+        class="card">
+        <div class="icon">{{product.icon}}</div>
         <h2 class="title">
-            <a [routerLink]="['/product', p.id]">
-                {{ p.title }}
+            <a [routerLink]="['/product', product.id]">
+                {{ product.title }}
             </a>
         </h2>
         <div class="tags">
-            <div *ngFor="let category of p.categories" class="tag">
+            <div *ngFor="let category of product.categories" class="tag">
                 {{ category }}
             </div>
         </div>
         <p>
-            {{ p.description }}
+            {{ product.description }}
         </p>
         <div class="price mb-1">
-            {{ p.price | priceDisplay }} €
+            {{ product.price | priceDisplay }} €
         </div>
         <!-- <div>
             <ul>
-                <li *ngFor="let metaData of p.metaData">
+                <li *ngFor="let metaData of product.metaData">
                     {{ metaData.name }} : {{ metaData.value }}
                 </li>
             </ul>
         </div> -->
 
-        <app-add-to-cart-button [product]="p" class="mt-1"></app-add-to-cart-button>
+        <app-add-to-cart-button [product]="product" class="mt-1"></app-add-to-cart-button>
     </div>
 </div>

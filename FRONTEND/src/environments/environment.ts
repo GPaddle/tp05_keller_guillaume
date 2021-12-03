@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  productURL: "/assets/mock/products.json"
+  productURL: "https://api-tp05-keller-guillaume.herokuapp.com/api/product",
+  API_URL: "https://api-tp05-keller-guillaume.herokuapp.com/api"
 };
 
 /*
