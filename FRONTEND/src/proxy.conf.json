@@ -1,6 +1,6 @@
 {
     "/api": {
-        "target": "http://localhost:8080",
+        "target": "https://api-tp05-keller-guillaume.herokuapp.com",
         "secure": false,
         "changeOrigin": true,
         "logLevel": "debug",

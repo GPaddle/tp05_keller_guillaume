@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { ApiService } from '../api.service';
 import { Account } from './account';
 import { Address } from './address';
 import { Contact } from './contact';
@@ -14,9 +15,9 @@ export class FormComponent implements OnInit {
   signUpForm: FormGroup;
 
   @Input() password: string = "";
-  people: People ;
+  people: People;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private api: ApiService) {
     this.signUpForm = this.formBuilder.group({
       lastName: new FormControl('', Validators.compose([Validators.required, Validators.pattern(`[A-Z][a-z]+`)])),
       firstName: new FormControl('', Validators.compose([Validators.required, Validators.pattern(`[A-Z][a-z]+`)])),
@@ -55,10 +56,9 @@ export class FormComponent implements OnInit {
     })
   }
 
-
   inPasswordConfirmation: any;
-  submit() {
 
+  submit() {
     const address = new Address(
       this.signUpForm.value.address.street,
       this.signUpForm.value.address.postalCode,
@@ -82,6 +82,9 @@ export class FormComponent implements OnInit {
       contact,
       account
     );
+
+    this.api.postRegistration(this.people)
+      .subscribe(event => console.log(event));
   }
 
   ngOnInit(): void { }

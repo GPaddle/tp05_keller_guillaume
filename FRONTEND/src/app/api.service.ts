@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Contact } from './form/contact';
+import { People } from './form/people';
 
 @Injectable({
   providedIn: 'root'
@@ -23,20 +24,17 @@ export class ApiService {
     )
   };
 
-  private proceedLogin(login: string, password: string, url: string): Observable<Contact> {
+  public postLogin(login: string, password: string): Observable<Contact> {
     let data: Object = {
       "login": login,
       "password": password,
     };
 
-    return this.httpClient.post<any>(url, data, this.httpOptions);
+    return this.httpClient.post<any>(environment.API_URL + this.urlApiLogin, data, this.httpOptions);
   }
 
-  public postLogin(login: string, password: string): Observable<Contact> {
-    return this.proceedLogin(login, password, environment.API_URL + this.urlApiLogin);
-  }
+  public postRegistration(people: People): Observable<Contact> {
 
-  public postRegistration(login: string, password: string): Observable<Contact> {
-    return this.proceedLogin(login, password, environment.API_URL + this.urlApiRegister);
+    return this.httpClient.post<any>(environment.API_URL + this.urlApiRegister, people, this.httpOptions);
   }
 }

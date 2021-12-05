@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   @Input() password: string = "";
 
-  constructor(private formBuilder: FormBuilder, private api : ApiService) {
+  constructor(private formBuilder: FormBuilder, private api: ApiService) {
     this.loginForm = this.formBuilder.group({
       account: this.formBuilder.group({
         login: new FormControl('', Validators.compose([Validators.required, Validators.pattern(`.{5}.*`)])),
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     );
 
     this.api.postLogin(account.login, account.password)
-    .subscribe(j => console.log(j));
+      .subscribe(event => console.log(event));
   }
 
   ngOnInit(): void { }
