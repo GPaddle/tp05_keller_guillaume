@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Contact } from './form/contact';
 
 @Injectable({
@@ -32,10 +33,10 @@ export class ApiService {
   }
 
   public postLogin(login: string, password: string): Observable<Contact> {
-    return this.proceedLogin(login, password, this.urlApiLogin);
+    return this.proceedLogin(login, password, environment.API_URL + this.urlApiLogin);
   }
 
   public postRegistration(login: string, password: string): Observable<Contact> {
-    return this.proceedLogin(login, password, this.urlApiRegister);
+    return this.proceedLogin(login, password, environment.API_URL + this.urlApiRegister);
   }
 }

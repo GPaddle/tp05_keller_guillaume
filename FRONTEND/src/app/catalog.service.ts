@@ -15,11 +15,6 @@ export class CatalogService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private extractData(res: Response): any {
-    const body = res;
-    return body || {};
-  }
-
   getCatalogue(): Observable<any> {
     this.observableProductArray = this.httpClient.get<Array<Product>>(environment.productURL);
     return this.observableProductArray;
