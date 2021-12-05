@@ -1,0 +1,44 @@
+form {
+	max-width: 50ch;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	text-align: center;
+}
+
+form>div {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+button {
+	margin: auto;
+}
+
+div{
+	gap: 1rem;
+	display: flex;
+	flex-direction: column;
+}
+
+button svg {
+	max-height: 25px;
+	translate: -6px 6px;
+}
+
+button {
+	min-height: 40px;
+	background: #fff2;
+	color: var(--primary-color);
+	transition: 0.5s;
+	border-radius: 1rem;
+	border: 1px solid;
+	text-decoration: none;
+}
+
+button:hover{
+	background: #fff6;
+	transition: 0.5s;
+}

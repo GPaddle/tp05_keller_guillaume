@@ -25,6 +25,7 @@ import { AddAddressComponent } from './form/add-address/add-address.component';
 import { AddressComponent } from './form/address/address.component';
 import { ApiHttpInterceptor } from './api-http-interceptor';
 import { GetDataPipe } from './get-data.pipe';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path: 'cart',
     loadChildren: () => import('./cart/cart.module').then(m => m.CartModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
   },
   {
     path: '',
@@ -69,6 +74,7 @@ const routes: Routes = [
     AddAddressComponent,
     AddressComponent,
     GetDataPipe,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

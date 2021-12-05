@@ -1,47 +1,61 @@
-import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable, of } from "rxjs";
-import { tap } from "rxjs/operators";
+import { filter, tap } from "rxjs/operators";
 
 @Injectable()
 export class ApiHttpInterceptor implements HttpInterceptor {
 
-	jwtToken: String = "";
+	JWTToken: String = "";
 
 	constructor(private router: Router) { }
 
-	intercept(req: HttpRequest<any>, next: HttpHandler):
-		Observable<HttpEvent<any>> {
+	intercept(httpRequest: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-		return next.handle(req).pipe(tap((evt: HttpEvent<any>) => {
-			if (evt instanceof HttpResponse) {
-				let tab: Array<String>;
-				let enteteAuthorization = evt.headers.get("Authorization");
-				if (enteteAuthorization != null) {
-					tab = enteteAuthorization.split(/Bearer\s+(.*)$/i);
-					if (tab.length > 1) {
-						this.jwtToken = tab[1];
-					}
-				}
-			}
-			if (this.jwtToken != "") {
-				req = req.clone({
+		if (this.JWTToken != "") {
+			httpRequest = httpRequest.clone(
+				{
 					setHeaders: {
-						Authorization: `Bearer
-					${this.jwtToken}`
+						Authorization: `Bearer ${this.JWTToken}`
 					}
-				});
-			}
-		},
-			(error: HttpErrorResponse) => {
-				switch (error.status) {
-					case 400:
-					case 401:
-						this.router.navigate(["/"]);
 				}
-				return of(null);
-			}
-		));
+			);
+		}
+
+		return next.handle(httpRequest).pipe(
+			filter(e => e.type !== 0),
+			tap(
+				(event: HttpEvent<any>) => {
+					console.log('[API]: response ', event);
+
+					if (event instanceof HttpResponse) {
+
+						let authorizationHeader = event.headers.get("Authorization");
+
+						if (authorizationHeader != null) {
+							let tab: Array<String> = authorizationHeader.split(/Bearer\s+(.*)$/i);
+							if (tab.length > 1) {
+								this.JWTToken = tab[1];
+
+								console.log("new JWT Token ! " + this.JWTToken)
+							}
+						}
+					}
+				},
+				(error: HttpErrorResponse) => {
+					switch (error.status) {
+						case 400:
+							console.error(error.message);
+							break;
+						case 401:
+							alert(error.error.data.message);
+							break;
+						// this.router.navigate(["/"]);
+					}
+					return of(null);
+				}
+			)
+		);
 	}
 }

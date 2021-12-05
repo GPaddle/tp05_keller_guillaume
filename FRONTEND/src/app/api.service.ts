@@ -9,24 +9,33 @@ import { Contact } from './form/contact';
 export class ApiService {
 
   urlApiLogin = "/api/login"
-  urlApiAuth = "/api/auth"
+  urlApiRegister = "/api/register"
   tokenParse: String = "";
 
   constructor(private httpClient: HttpClient) { }
 
-  public postLogin(login: String, password: String): Observable<Contact> {
-    let data: String;
-    let httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  httpOptions = {
+    headers: new HttpHeaders(
+      {
+        'Content-Type': 'application/json'
+      }
+    )
+  };
+
+  private proceedLogin(login: string, password: string, url: string): Observable<Contact> {
+    let data: Object = {
+      "login": login,
+      "password": password,
     };
-    data = `login=${login}&pass=${password}`;
-    return this.httpClient.post<Contact>(this.urlApiLogin, data, httpOptions);
+
+    return this.httpClient.post<any>(url, data, this.httpOptions);
   }
 
-  public getLogin(login: String): Observable<Contact> {
-    let data: String = "login=" + login;
+  public postLogin(login: string, password: string): Observable<Contact> {
+    return this.proceedLogin(login, password, this.urlApiLogin);
+  }
 
-    return this.httpClient.get<any>(this.urlApiAuth + login);
-
+  public postRegistration(login: string, password: string): Observable<Contact> {
+    return this.proceedLogin(login, password, this.urlApiRegister);
   }
 }

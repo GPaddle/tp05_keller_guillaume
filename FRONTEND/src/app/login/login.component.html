@@ -1,0 +1,76 @@
+<form action="" method="post" id="loginForm" [formGroup]="loginForm" (ngSubmit)="submit()">
+	<h2>Ravis de vous revoir !</h2>
+	<p>Connectez-vous ici</p>
+
+	<div id="account" class="input-group" formGroupName="account">
+		<div>
+			<label for="login">🚪 Nom d'utilisateur</label>
+			<input type="text" name="login" id="loginInput" placeholder="Nom d'utilisateur" formControlName="login">
+		</div>
+
+		<div>
+			<label for="password">🔑 Mot de passe</label>
+			<input type="password" name="password" id="passwordInput" [(ngModel)]='password' placeholder="Mot de passe"
+				minlength="5" formControlName="password">
+		</div>
+	</div>
+
+	<button type="submit" class="mx-auto my-1">Envoyer !</button>
+
+	<a routerLink="/form" routerLinkActive="active">Pas encore inscrit ? Enregistrez-vous ici !</a>
+
+	<hr>
+
+	<h2>Se connecter via les réseaux sociaux</h2>
+
+	<div class="flex">
+		<button>
+
+			<svg width="24" height="24" class="tanuki-logo" viewBox="0 0 36 36">
+				<path class="tanuki-shape tanuki-left-ear" fill="#e24329"
+					d="M2 14l9.38 9v-9l-4-12.28c-.205-.632-1.176-.632-1.38 0z"></path>
+				<path class="tanuki-shape tanuki-right-ear" fill="#e24329"
+					d="M34 14l-9.38 9v-9l4-12.28c.205-.632 1.176-.632 1.38 0z"></path>
+				<path class="tanuki-shape tanuki-nose" fill="#e24329" d="M18,34.38 3,14 33,14 Z"></path>
+				<path class="tanuki-shape tanuki-left-eye" fill="#fc6d26" d="M18,34.38 11.38,14 2,14 6,25Z"></path>
+				<path class="tanuki-shape tanuki-right-eye" fill="#fc6d26" d="M18,34.38 24.62,14 34,14 30,25Z">
+				</path>
+				<path class="tanuki-shape tanuki-left-cheek" fill="#fca326"
+					d="M2 14L.1 20.16c-.18.565 0 1.2.5 1.56l17.42 12.66z"></path>
+				<path class="tanuki-shape tanuki-right-cheek" fill="#fca326"
+					d="M34 14l1.9 6.16c.18.565 0 1.2-.5 1.56L18 34.38z"></path>
+			</svg>
+
+			Gitlab
+		</button>
+		<button>
+
+			<svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true"
+				class="octicon octicon-mark-github v-align-middle">
+				<path fill-rule="evenodd"
+					d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+				</path>
+			</svg>
+
+			Github
+		</button>
+		<button>
+
+			<svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+				<g transform="matrix(1, 0, 0, 1, 27.009001, -39.238998)">
+					<path fill="#4285F4"
+						d="M -3.264 51.509 C -3.264 50.719 -3.334 49.969 -3.454 49.239 L -14.754 49.239 L -14.754 53.749 L -8.284 53.749 C -8.574 55.229 -9.424 56.479 -10.684 57.329 L -10.684 60.329 L -6.824 60.329 C -4.564 58.239 -3.264 55.159 -3.264 51.509 Z" />
+					<path fill="#34A853"
+						d="M -14.754 63.239 C -11.514 63.239 -8.804 62.159 -6.824 60.329 L -10.684 57.329 C -11.764 58.049 -13.134 58.489 -14.754 58.489 C -17.884 58.489 -20.534 56.379 -21.484 53.529 L -25.464 53.529 L -25.464 56.619 C -23.494 60.539 -19.444 63.239 -14.754 63.239 Z" />
+					<path fill="#FBBC05"
+						d="M -21.484 53.529 C -21.734 52.809 -21.864 52.039 -21.864 51.239 C -21.864 50.439 -21.724 49.669 -21.484 48.949 L -21.484 45.859 L -25.464 45.859 C -26.284 47.479 -26.754 49.299 -26.754 51.239 C -26.754 53.179 -26.284 54.999 -25.464 56.619 L -21.484 53.529 Z" />
+					<path fill="#EA4335"
+						d="M -14.754 43.989 C -12.984 43.989 -11.404 44.599 -10.154 45.789 L -6.734 42.369 C -8.804 40.429 -11.514 39.239 -14.754 39.239 C -19.444 39.239 -23.494 41.939 -25.464 45.859 L -21.484 48.949 C -20.534 46.099 -17.884 43.989 -14.754 43.989 Z" />
+				</g>
+			</svg>
+
+			Google
+		</button>
+	</div>
+
+</form>

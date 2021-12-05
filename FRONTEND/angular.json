@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "tp04KellerGuillaume": {
+    "tp05KellerGuillaume": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/tp04KellerGuillaume",
+            "outputPath": "dist/tp05KellerGuillaume",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,18 +68,21 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "tp04KellerGuillaume:build:production"
+              "browserTarget": "tp05KellerGuillaume:build:production"
             },
             "development": {
-              "browserTarget": "tp04KellerGuillaume:build:development"
+              "browserTarget": "tp05KellerGuillaume:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "proxyConfig": "src/proxy.conf.json"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "tp04KellerGuillaume:build"
+            "browserTarget": "tp05KellerGuillaume:build"
           }
         },
         "test": {
@@ -102,5 +105,5 @@
       }
     }
   },
-  "defaultProject": "tp04KellerGuillaume"
+  "defaultProject": "tp05KellerGuillaume"
 }

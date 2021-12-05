@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dirName="tp04"
+dirName="tp05"
 repoName="$dirName-keller-guillaume"
 
 ng build
