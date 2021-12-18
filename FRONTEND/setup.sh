@@ -3,7 +3,7 @@
 dirName="tp05"
 repoName="$dirName-keller-guillaume"
 
-ng build --prod
+ng build
 cd dist/$dirName* || exit 
 
 heroku login

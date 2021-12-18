@@ -1,5 +1,4 @@
 export class Address {
-
 	street: string;
 	postalCode: string;
 	city: string;
@@ -17,4 +16,14 @@ export class Address {
 		this.country = country;
 	}
 
+	static fromJSON(item: any[]): Address[] {
+		item.map(address => new Address(
+			address['street'],
+			address['postal_code'],
+			address['city'],
+			address['country'])
+		)
+
+		return item;
+	}
 }

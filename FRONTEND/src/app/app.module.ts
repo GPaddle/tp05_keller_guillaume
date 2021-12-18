@@ -21,11 +21,10 @@ import { CartState } from './cart/states/cart-state';
 import { RemoveFromCartButtonComponent } from './cart/remove-from-cart-button/remove-from-cart-button.component';
 import { FilterProductPipe } from './pipes/filter-product.pipe';
 import { PriceDisplayPipe } from './pipes/price-display.pipe';
-import { AddAddressComponent } from './form/add-address/add-address.component';
-import { AddressComponent } from './form/address/address.component';
 import { ApiHttpInterceptor } from './api-http-interceptor';
 import { GetDataPipe } from './get-data.pipe';
 import { LoginComponent } from './login/login.component';
+import { AccountState } from './account/states/account-state';
 
 const routes: Routes = [
   {
@@ -33,7 +32,7 @@ const routes: Routes = [
     loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
   },
   {
-    path: 'form',
+    path: 'account',
     loadChildren: () => import('./form/form.module').then(m => m.FormModule)
   },
   {
@@ -71,8 +70,6 @@ const routes: Routes = [
     FloatingCartButtonComponent,
     CartDetailComponent,
     RemoveFromCartButtonComponent,
-    AddAddressComponent,
-    AddressComponent,
     GetDataPipe,
     LoginComponent,
   ],
@@ -83,7 +80,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    NgxsModule.forRoot([CartState], { developmentMode: !environment.production }),
+    NgxsModule.forRoot([CartState, AccountState], { developmentMode: !environment.production }),
   ],
   exports: [RouterModule],
   providers: [{

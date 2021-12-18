@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Store } from '@ngxs/store';
+import { UpdatePeople } from '../account/actions/account-actions';
 import { ApiService } from '../api.service';
 import { Account } from './account';
 import { Address } from './address';
@@ -17,7 +20,7 @@ export class FormComponent implements OnInit {
   @Input() password: string = "";
   people: People;
 
-  constructor(private formBuilder: FormBuilder, private api: ApiService) {
+  constructor(private formBuilder: FormBuilder, private api: ApiService, private store: Store, private router: Router) {
     this.signUpForm = this.formBuilder.group({
       lastName: new FormControl('', Validators.compose([Validators.required, Validators.pattern(`[A-Z][a-z]+`)])),
       firstName: new FormControl('', Validators.compose([Validators.required, Validators.pattern(`[A-Z][a-z]+`)])),
@@ -74,17 +77,23 @@ export class FormComponent implements OnInit {
       this.signUpForm.value.account.password,
     );
 
-    this.people = new People(
+    let people = new People(
       this.signUpForm.value.lastName,
       this.signUpForm.value.firstName,
       this.signUpForm.value.civility,
-      address,
+      [address],
       contact,
       account
     );
 
-    this.api.postRegistration(this.people)
-      .subscribe(event => console.log(event));
+    this.api.postRegistration(people)
+      .subscribe(event => {
+        this.store.dispatch(new UpdatePeople(people));
+        // console.log(event.data.object);
+        this.people = people;
+
+        this.router.navigate(['/account/personnalPage']);
+      });
   }
 
   ngOnInit(): void { }

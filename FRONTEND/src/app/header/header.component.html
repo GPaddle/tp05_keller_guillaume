@@ -3,10 +3,20 @@
 <nav>
     <ul class="flex">
         <li>🧾 <a routerLink="/product" routerLinkActive="active"> Nos produits</a></li>
-        <li>📥
-            <a routerLink="/form" routerLinkActive="active"> S'enregistrer</a> / 
-            <a routerLink="/login" routerLinkActive="active"> Se connecter</a>
+        <li *ngIf="people$ | async as people; else notConnectedTemplate">
+            <a routerLink="/account/personnalPage" routerLinkActive="active">
+                Bienvenue {{ people.firstName }} {{ people.lastName }}
+            </a>
         </li>
+        <ng-template #notConnectedTemplate>
+            <li>
+                📥
+                <a routerLink="/account/register" routerLinkActive="active"> S'enregistrer</a> /
+                <a routerLink="/login" routerLinkActive="active"> Se connecter</a>
+            </li>
+        </ng-template>
         <li>🛒 <a routerLink="/cart" routerLinkActive="active"> Panier</a></li>
+
+
     </ul>
 </nav>

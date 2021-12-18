@@ -9,8 +9,9 @@ import { People } from '../people';
 })
 export class AddressComponent implements OnInit {
 
-  @Input() address: Address
-  @Input() people: People
+  @Input() address: Address;
+  @Input() people: People;
+  
   constructor() { }
 
   ngOnInit(): void {

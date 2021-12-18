@@ -1,0 +1,29 @@
+<div *ngIf="people$ | async as people" class="flex flex-column gap-1 card">
+
+	<section>
+		<h2 class="text-center">{{people.civility}} {{people.lastName}} {{people.firstName}}</h2>
+	</section>
+	<section>
+		<div *ngIf="!people.addresses?.length" class="my-1">
+			🤔 Vous n'avez vraiment pas d'addresse ?
+		</div>
+		<div *ngFor="let address of people.addresses; let index = index">
+			<app-address [address]=address [people]=people></app-address>
+		</div>
+		<!-- <details [attr.open]="!people.addresses?.length ? 'Ok': null">
+			<summary class="bg-success p-1 w-max-content br-1">
+				Ajout d'une nouvelle addresse
+			</summary>
+			<app-add-address [people]=people></app-add-address>
+		</details> -->
+	</section>
+	<section>
+		<address>
+			✉ <a href="mailto:{{people.contact.email}}">{{people.contact.email}}</a><br>
+			📞 <a href="tel:{{people.contact.phoneNumber}}">{{people.contact.phoneNumber}}</a>
+		</address>
+	</section>
+
+	<section>🔑 {{people.account.login}}</section>
+
+</div>

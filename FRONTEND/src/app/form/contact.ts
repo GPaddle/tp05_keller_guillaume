@@ -9,4 +9,11 @@ export class Contact {
 		this.email = email;
 		this.phoneNumber = phoneNumber;
 	}
+	
+	static fromJSON(item: any): Contact {
+		return new Contact(
+			item['email'],
+			item['phone_number']
+		)
+	}
 }
