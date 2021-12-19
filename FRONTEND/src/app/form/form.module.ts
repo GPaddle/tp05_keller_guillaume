@@ -6,16 +6,21 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PersonnalPageComponent } from './personnal-page/personnal-page.component';
 import { AddressComponent } from './address/address.component';
 import { AddAddressComponent } from './add-address/add-address.component';
+import { DisconnectButtonComponent } from '../disconnect-button/disconnect-button.component';
+import { CanActivatePersonnalPageGuard } from '../can-activate-personnal-page.guard';
+import { CanActivateLoginPageGuard } from '../can-activate-login-page.guard';
 
 
 const appChild: Routes = [
   {
     path: 'register',
     component: FormComponent,
+    canActivate:[CanActivateLoginPageGuard]
   },
   {
-    path: 'personnalPage',
+    path: '',
     component: PersonnalPageComponent,
+    canActivate:[CanActivatePersonnalPageGuard]
   },
 ];
 
@@ -23,7 +28,7 @@ const appChild: Routes = [
   declarations: [
     PersonnalPageComponent,
     AddAddressComponent,
-    AddressComponent
+    AddressComponent,
   ],
   imports: [
     CommonModule,

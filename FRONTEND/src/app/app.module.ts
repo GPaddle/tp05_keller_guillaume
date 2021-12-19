@@ -25,6 +25,8 @@ import { ApiHttpInterceptor } from './api-http-interceptor';
 import { GetDataPipe } from './get-data.pipe';
 import { LoginComponent } from './login/login.component';
 import { AccountState } from './account/states/account-state';
+import { DisconnectButtonComponent } from './disconnect-button/disconnect-button.component';
+import { CanActivateLoginPageGuard } from './can-activate-login-page.guard';
 
 const routes: Routes = [
   {
@@ -45,7 +47,8 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
+    canActivate:[CanActivateLoginPageGuard]
   },
   {
     path: '',
@@ -72,6 +75,7 @@ const routes: Routes = [
     RemoveFromCartButtonComponent,
     GetDataPipe,
     LoginComponent,
+    DisconnectButtonComponent,
   ],
   imports: [
     BrowserModule,

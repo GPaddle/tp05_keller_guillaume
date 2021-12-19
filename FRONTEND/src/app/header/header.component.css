@@ -1,4 +1,4 @@
-ul.flex{
+ul.flex {
 	gap: 1rem;
 }
 
@@ -8,6 +8,6 @@ ul li {
 	flex: 1;
 }
 
-nav{
+nav {
 	margin-top: 1rem;
 }

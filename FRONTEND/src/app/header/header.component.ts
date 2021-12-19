@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Select } from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
+import { DisconnectPeople, UpdatePeople } from '../account/actions/account-actions';
 import { AccountState } from '../account/states/account-state';
 import { People } from '../form/people';
 
@@ -13,7 +14,7 @@ export class HeaderComponent implements OnInit {
 
   @Select(AccountState.getAccount) people$: Observable<People>;
 
-  constructor() { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
   }

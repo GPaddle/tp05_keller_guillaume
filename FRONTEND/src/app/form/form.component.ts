@@ -92,7 +92,7 @@ export class FormComponent implements OnInit {
         // console.log(event.data.object);
         this.people = people;
 
-        this.router.navigate(['/account/personnalPage']);
+        this.router.navigate(['/account']);
       });
   }
 

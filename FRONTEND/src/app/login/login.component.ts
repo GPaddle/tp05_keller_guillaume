@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
 
         this.store.dispatch(new UpdatePeople(people));
 
-        this.router.navigate(['/account/personnalPage']);
+        this.router.navigate(['/account']);
       });
   }
 

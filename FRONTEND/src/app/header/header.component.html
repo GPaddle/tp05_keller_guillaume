@@ -4,9 +4,10 @@
     <ul class="flex">
         <li>🧾 <a routerLink="/product" routerLinkActive="active"> Nos produits</a></li>
         <li *ngIf="people$ | async as people; else notConnectedTemplate">
-            <a routerLink="/account/personnalPage" routerLinkActive="active">
+            <a routerLink="/account" routerLinkActive="active">
                 Bienvenue {{ people.firstName }} {{ people.lastName }}
             </a>
+            <app-disconnect-button></app-disconnect-button>
         </li>
         <ng-template #notConnectedTemplate>
             <li>

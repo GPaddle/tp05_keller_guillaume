@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { People } from "src/app/form/people";
-import { GetPeople, UpdatePeople } from "../actions/account-actions";
+import { DisconnectPeople, GetPeople, UpdatePeople } from "../actions/account-actions";
 import { AccountStateModel } from "./account-state-model";
 
 @State<AccountStateModel>({
@@ -28,4 +28,14 @@ export class AccountState {
 			account: payload,
 		});
 	}
+
+	@Action(DisconnectPeople)
+	disconnectPeople(
+		{ patchState }: StateContext<AccountStateModel>,
+	) {
+		patchState({
+			account: null,
+		});
+	}
+
 }

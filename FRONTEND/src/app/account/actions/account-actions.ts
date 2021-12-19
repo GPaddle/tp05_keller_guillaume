@@ -6,6 +6,12 @@ export class UpdatePeople {
 	constructor(public payload: People) { }
 }
 
+export class DisconnectPeople {
+	static readonly type = "[People] Remove"
+
+	constructor() { }
+}
+
 export class GetPeople {
 	static readonly type = "[People] Get"
 }
