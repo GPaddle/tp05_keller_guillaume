@@ -1,4 +1,17 @@
 <form action="" method="post" id="contactForm" [formGroup]="signUpForm" (ngSubmit)="submit()">
+    
+    <div id="contact" class="input-group">
+        <div>
+            <label for="civility">Civilité</label>
+            <select name="civility" id="civility" formControlName="civility">
+                <option selected disabled hidden value="">Faites un choix</option>
+                <option value="Monsieur">👨🏼 Monsieur</option>
+                <option value="Madame">👩🏼 Madame</option>
+                <option value="Nothing">🤖 Ne se prononce pas</option>
+            </select>
+        </div>
+    </div>
+    
     <div id="person" class="input-group">
         <div>
             <label for="lastName">Nom</label>
@@ -64,19 +77,6 @@
             <input type="email" name="email" id="emailInput" placeholder="Jean@Dupont.fr"
                 title="L'email doit correspondre au format xxxx@yyyyyy.zzzzzz" formControlName="email">
             <span title="L'email doit correspondre au format xxxx@yyyyyy.zzzzzz"></span>
-        </div>
-
-    </div>
-
-    <div id="contact" class="input-group">
-        <div>
-            <label for="civility">Civilité</label>
-            <select name="civility" id="civility" formControlName="civility">
-                <option selected disabled hidden value="">Faites un choix</option>
-                <option value="Monsieur">👨🏼 Monsieur</option>
-                <option value="Madame">👩🏼 Madame</option>
-                <option value="Nothing">🤖 Ne se prononce pas</option>
-            </select>
         </div>
     </div>
 

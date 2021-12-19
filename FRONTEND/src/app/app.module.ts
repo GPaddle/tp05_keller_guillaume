@@ -31,11 +31,16 @@ import { CanActivateLoginPageGuard } from './can-activate-login-page.guard';
 const routes: Routes = [
   {
     path: 'product',
-    loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
+    component: ProductsComponent,
   },
   {
     path: 'account',
     loadChildren: () => import('./form/form.module').then(m => m.FormModule)
+  },
+  {
+    path: 'account/register',
+    component: FormComponent,
+    canActivate:[CanActivateLoginPageGuard]
   },
   {
     path: 'product/:id',
@@ -47,7 +52,7 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
+    component: LoginComponent,
     canActivate:[CanActivateLoginPageGuard]
   },
   {
