@@ -56,9 +56,9 @@ export class CartState {
 		if (payload.cartItem.quantity - payload.quantity > 0) {
 			const newCartItem = new CartItem(payload.cartItem.product, payload.cartItem.quantity - payload.quantity)
 
-			let index = state.cartItems.findIndex(element=>element == payload.cartItem);
+			let index = state.cartItems.findIndex(element => element == payload.cartItem);
 
-			let newCartItems =state.cartItems.slice();
+			let newCartItems = state.cartItems.slice();
 			if (index != -1) {
 				newCartItems[index] = newCartItem;
 			}

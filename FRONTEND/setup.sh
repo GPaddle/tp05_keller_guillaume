@@ -10,7 +10,8 @@ heroku login
 heroku create $repoName
 
 git init
-touch composer.json
+
+echo "{}" > composer.json
 git add .
 git commit -m "first commit"
 

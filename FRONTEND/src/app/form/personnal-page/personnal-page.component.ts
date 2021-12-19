@@ -16,7 +16,7 @@ export class PersonnalPageComponent implements OnInit {
   @Select(AccountState.getAccount) people$: Observable<People>;
   people: People;
 
-  constructor(private store: Store) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

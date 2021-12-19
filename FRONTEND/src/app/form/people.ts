@@ -4,6 +4,7 @@ import { Contact } from "./contact";
 
 export class People {
 
+	id: number | null;
 	lastName: string;
 	firstName: string;
 	civility: string;
@@ -12,6 +13,7 @@ export class People {
 	account: Account;
 
 	constructor(
+		id: number | null,
 		lastName: string,
 		firstName: string,
 		civility: string,
@@ -19,6 +21,7 @@ export class People {
 		contact: Contact,
 		account: Account
 	) {
+		this.id = id;
 		this.lastName = lastName;
 		this.firstName = firstName;
 		this.civility = civility;
@@ -36,25 +39,29 @@ export class People {
 		const newAddresses = this.addresses.filter(element => element != addressTarget);
 
 		console.log(newAddresses);
-		
 
-		return new People(this.lastName, this.firstName, this.civility, newAddresses, this.contact, this.account);
+
+		return new People(this.id, this.lastName, this.firstName, this.civility, newAddresses, this.contact, this.account);
 	}
 
 	removeAddress(address: Address): boolean {
 
-		let index: number = this.addresses.findIndex(existingAddress => address == existingAddress);
-		if (index == -1) {
-			return false;
-		}
+		// let index: number = this.addresses.findIndex(existingAddress => address == existingAddress);
+		// if (index == -1) {
+		// 	return false;
+		// }
 
-		this.addresses.splice(index, 1);
+		// this.addresses.splice(index, 1);
+
+		console.log(address.id);
+		
 
 		return true;
 	}
 
 	static fromJSON(item: any): People {
 		return new People(
+			item['id'],
 			item['lastname'],
 			item['firstname'],
 			item['civility'],

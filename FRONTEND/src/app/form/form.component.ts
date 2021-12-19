@@ -63,6 +63,7 @@ export class FormComponent implements OnInit {
 
   submit() {
     const address = new Address(
+      -1,
       this.signUpForm.value.address.street,
       this.signUpForm.value.address.postalCode,
       this.signUpForm.value.address.city,
@@ -78,6 +79,7 @@ export class FormComponent implements OnInit {
     );
 
     let people = new People(
+      -1,
       this.signUpForm.value.lastName,
       this.signUpForm.value.firstName,
       this.signUpForm.value.civility,
@@ -88,9 +90,18 @@ export class FormComponent implements OnInit {
 
     this.api.postRegistration(people)
       .subscribe(event => {
-        this.store.dispatch(new UpdatePeople(people));
-        // console.log(event.data.object);
-        this.people = people;
+
+        console.log(event.data.object);
+
+        const APIPeople = People.fromJSON(event.data.object);
+
+        this.store.dispatch(new UpdatePeople(APIPeople));
+
+        if (APIPeople.id) {
+          this.api.user_id = APIPeople.id;
+        }
+
+        this.people = APIPeople;
 
         this.router.navigate(['/account']);
       });
