@@ -33,7 +33,7 @@
 
 
 <div class="cards">
-    <div *ngFor="let product of catalog$ | async | getData | filterProduct:[(searchInput),(minPrice),(maxPrice)]"
+    <div *ngFor="let product of catalog | filterProduct:[(searchInput),(minPrice),(maxPrice)]"
         class="card">
         <div class="icon">{{product.icon}}</div>
         <h2 class="title">
@@ -43,7 +43,7 @@
         </h2>
         <div class="tags">
             <div *ngFor="let category of product.categories" class="tag">
-                {{ category }}
+                {{ category.name }}
             </div>
         </div>
         <p>

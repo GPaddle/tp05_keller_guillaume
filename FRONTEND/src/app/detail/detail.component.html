@@ -1,16 +1,16 @@
-<div class="flex" *ngFor="let product of product$ | async | getData">
+<div class="flex" >
 	<div id="icon" class="mx-auto" title="{{ product.icon }}"></div>
 	<div id="productDescription" class="mx-auto">
 		<h1 id="title">{{ product.title }}</h1>
 		<div class="tags">
 			<div *ngFor="let category of product.categories" class="tag">
-				{{ category }}
+				{{ category.name }}
 			</div>
 		</div>
-		<p id="description">{{ product.description_ }}</p>
+		<p id="description">{{ product.description }}</p>
 		<ul id="metaData">
-			<li *ngFor="let metaData of product.metaData">
-				{{ metaData.name_ }} : {{ metaData.value_ }}
+			<li *ngFor="let m of product.metadata">
+				{{ m.name }} : {{ m.value }}
 			</li>
 		</ul>
 		<h2 id="price">{{ product.price | priceDisplay }} €</h2>

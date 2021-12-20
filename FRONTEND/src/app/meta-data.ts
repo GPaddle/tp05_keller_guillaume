@@ -6,4 +6,11 @@ export class MetaData {
 		this.name = name;
 		this.value = value;
 	}
+
+	static fromJSON(item: any): MetaData {
+		return new MetaData(
+			item['name_'],
+			item['value_'],
+		);
+	}
 }

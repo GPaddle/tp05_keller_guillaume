@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { CatalogService } from '../catalog.service';
+import { Category } from './category';
 import { Product } from './product';
 
 
@@ -13,12 +14,13 @@ import { Product } from './product';
 export class ProductsComponent implements OnInit {
 
   catalog$!: Observable<Array<Product>>;
+  catalog: Array<Product>;
 
   @Input() searchInput: string = "";
   @Input() minPrice: string | undefined;
   @Input() maxPrice: string | undefined;
 
-  categories: String[] = [];
+  categories: Category[] = [];
 
   constructor(
     private catalogService: CatalogService,
@@ -26,5 +28,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
     this.catalog$ = this.catalogService.getCatalogue();
+
+    this.catalog$.subscribe((event: any) => this.catalog = event.data.map((product: any) => Product.fromJSON(product)));
   }
 }

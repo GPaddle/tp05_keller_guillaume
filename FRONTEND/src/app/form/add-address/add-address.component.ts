@@ -52,10 +52,10 @@ export class AddAddressComponent implements OnInit {
           // console.log(getEvent.data);
 
           this.store.dispatch(new UpdatePeople(People.fromJSON(getEvent.data)))
+          this.addAddressForm.reset();
         });
 
       });
-    this.addAddressForm.reset();
   }
 
 

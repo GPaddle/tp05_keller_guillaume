@@ -14,11 +14,15 @@ export class DetailComponent implements OnInit {
   product$: Observable<Product[]>;
   id: number = 0;
 
+  product: Product;
+
   constructor(private route: ActivatedRoute, private catalogService: CatalogService) {
     this.id = this.route.snapshot.params.id;
 
     if (!this.product$) {
-      this.product$ = this.catalogService.getProduct(this.id)
+      this.product$ = this.catalogService.getProduct(this.id);
+
+      this.product$.subscribe((event : any)=> this.product = Product.fromJSON(event.data));
     }
   }
 
