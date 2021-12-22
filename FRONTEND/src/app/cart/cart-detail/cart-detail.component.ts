@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Select } from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
+import { EmptyCart } from '../actions/cart-actions';
 import { CartItem } from '../cart-item';
 import { CartState } from '../states/cart-state';
 
@@ -15,9 +16,15 @@ export class CartDetailComponent implements OnInit {
   @Select(CartState.getListProducts) cartItems$: Observable<CartItem[]>;
 
   empty: boolean = false;
-  constructor() { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
+  }
+
+  buyCart() {
+    if (confirm("Vous allez acheter l'intégralité des produits de votre panier, merci de confirmer l'achat")) { 
+      this.store.dispatch(new EmptyCart());
+    }
   }
 
 

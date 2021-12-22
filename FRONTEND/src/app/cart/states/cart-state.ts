@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Action, Selector, State, StateContext } from "@ngxs/store";
-import { AddToCart, RemoveFromCart } from "../actions/cart-actions";
+import { AddToCart, EmptyCart, RemoveFromCart } from "../actions/cart-actions";
 import { CartItem } from "../cart-item";
 import { CartStateModel } from "./cart-state-model";
 
@@ -75,7 +75,20 @@ export class CartState {
 				cartItems: [...cartItemsFiltered]
 			});
 		}
+	}
 
+	@Action(EmptyCart)
+	empty(
+		{ getState, patchState }: StateContext<CartStateModel>,
+		{ }: EmptyCart
+	) {
+		const state = getState();
+
+		// console.log(payload);
+
+		patchState({
+			cartItems: []
+		});
 
 	}
 

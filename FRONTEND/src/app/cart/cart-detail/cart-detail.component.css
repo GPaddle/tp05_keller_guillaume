@@ -28,3 +28,12 @@
 	border-right: 1px solid;
 	margin-right: 2rem;
 }
+
+.message {
+	text-align: center;
+}
+
+button {
+	display: block;
+	margin: 1rem auto;
+}

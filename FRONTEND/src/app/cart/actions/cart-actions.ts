@@ -12,3 +12,8 @@ export class RemoveFromCart {
 	// constructor(public payload: Map<Product, Number>) { }
 	constructor(public payload: {cartItem : CartItem, quantity: number}) { }
 }
+
+export class EmptyCart {
+	static readonly type = "[Product] Empty"
+	constructor() { }
+}

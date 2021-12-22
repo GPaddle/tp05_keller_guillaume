@@ -1,22 +1,27 @@
-<div class="products">
-
-	<div *ngIf="(nb$ | async) == 0" class="alert alert-danger">
-		😯 Le panier est vide, <a routerLink="/product" routerLinkActive="active">venez le remplir ici.</a>
-	</div>
-
-	<div *ngFor="let cartItem of cartItems$ | async" class="product">
-		<div class="icon">
-			{{ cartItem.product.icon }}
-		</div>
-		<p>
-			{{ cartItem.product.title }}
-		</p>
-		<p>
-			{{ cartItem.quantity }}×
-		</p>
-		<p class="price">
-			{{ cartItem.quantity * cartItem.product.price | priceDisplay}} €
-		</p>
-		<app-remove-from-cart-button [cartItem]="cartItem"></app-remove-from-cart-button>
-	</div>
+<div *ngIf="(nb$ | async) == 0; else buyTemplate" class="mx-auto message">
+	😯 Le panier est vide, <a routerLink="/product" routerLinkActive="active">venez le remplir ici.</a>
 </div>
+<ng-template #buyTemplate>
+	<div class="products">
+
+
+
+		<div *ngFor="let cartItem of cartItems$ | async" class="product">
+			<div class="icon">
+				{{ cartItem.product.icon }}
+			</div>
+			<p>
+				{{ cartItem.product.title }}
+			</p>
+			<p>
+				{{ cartItem.quantity }}×
+			</p>
+			<p class="price">
+				{{ cartItem.quantity * cartItem.product.price | priceDisplay}} €
+			</p>
+			<app-remove-from-cart-button [cartItem]="cartItem"></app-remove-from-cart-button>
+		</div>
+
+	</div>
+	<button (click)="buyCart()">Tout acheter</button>
+</ng-template>
