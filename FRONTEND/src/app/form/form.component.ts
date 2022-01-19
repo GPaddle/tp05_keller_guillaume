@@ -22,21 +22,21 @@ export class FormComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private api: ApiService, private store: Store, private router: Router) {
     this.signUpForm = this.formBuilder.group({
-      lastName: new FormControl('', Validators.compose([Validators.required, Validators.pattern(`[A-Z][a-z]+`)])),
-      firstName: new FormControl('', Validators.compose([Validators.required, Validators.pattern(`[A-Z][a-z]+`)])),
+      lastName: new FormControl('', Validators.compose([Validators.required, Validators.pattern(`[a-zA-Z]{1,20}`)])),
+      firstName: new FormControl('', Validators.compose([Validators.required, Validators.pattern(`[a-zA-Z]{1,20}`)])),
       civility: new FormControl('', Validators.compose([Validators.required, Validators.pattern(`Monsieur|Madame|Nothing`)])),
       address: this.formBuilder.group({
         street: new FormControl('', [Validators.required]),
         postalCode: new FormControl('', Validators.compose([Validators.required, Validators.pattern(`^[0-9]{5}$`)])),
         city: new FormControl('', Validators.compose([Validators.required, Validators.pattern(`^([a-zA-Z\\u0080-\\u024F]+(?:. |-| |'))*[a-zA-Z\\u0080-\\u024F]*$`)])),
-        country: new FormControl('', [Validators.required])
+        country: new FormControl('', [Validators.required, Validators.pattern(`[A-Z][a-z]+`)])
       }),
       contact: this.formBuilder.group({
         phoneNumber: new FormControl('', Validators.compose([Validators.required, Validators.pattern(`^[0-9]{10}|\\+33[0-9]{9}$`)])),
         email: new FormControl('', [Validators.required, Validators.email])
       }),
       account: this.formBuilder.group({
-        login: new FormControl('', Validators.compose([Validators.required, Validators.pattern(`.{5}.*`)])),
+        login: new FormControl('', Validators.compose([Validators.required, Validators.pattern(`[A-Za-z0-9_]{2}(?:[A-Za-z0-9_]{2,})?`)])),
         password: new FormControl('', Validators.compose([Validators.required, Validators.pattern(`.{5}.*`)])),
         passwordConfirmation: new FormControl('', [Validators.required])
       })
